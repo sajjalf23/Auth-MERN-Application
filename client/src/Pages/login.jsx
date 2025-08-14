@@ -14,9 +14,9 @@ const Login = () => {
   const[password,setpassword] = useState('');
   const [state, setstate] = useState('login');
   const onSubmithandler=async(e)=>{
+    axios.defaults.withCredentials = true;
       try{
          e.preventDefault();
-         axios.defaults.withCredentials = true;
          if(state === 'signup'){
           const {data} = await axios.post(BackendUrl+'/api/auth/register',{
             name , email , password
