@@ -2,6 +2,8 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import usermodel from "../Models/usermodel.js"
 import transporter from "../config/nodemailer.js"
+import {EMAIL_VERIFY_TEMPLATE , PASSWORD_RESET_TEMPLATE , REGISTER_TEMPLATE} from "../config/emailTemplate.js";
+
 
 export const register = async (req, res) => {
     const { name, email, password } = req.body;
@@ -39,7 +41,7 @@ export const register = async (req, res) => {
             from: process.env.SENDER_EMAIL,
             to: email,
             subject: "WELCOME TO AUTHENTICATION APP",
-            text: `WELCOME TO AUTHENTICATION APP ! . Your account has been created using this email : ${email}`,
+            html : REGISTER_TEMPLATE.replace("{{email}}",email)
         }
 
         await transporter.sendMail(mailOptions);
@@ -155,7 +157,7 @@ export const sendverifyotp = async (req, res) => {
             from: process.env.SENDER_EMAIL,
             to: user.email,
             subject: "ACCOUNT VERIFICATION OTP",
-            text: `Hi, please verify your account using the OTP below: ${otp}. `,
+            html : EMAIL_VERIFY_TEMPLATE.replace("{{otpCode}}",otp)
         }
         await transporter.sendMail(mailOptions);
         return res.status(200).json({
@@ -270,7 +272,7 @@ export const resetpasswordotp = async (req, res) => {
             from: process.env.SENDER_EMAIL,
             to: user.email,
             subject: "Reset Password OTP",
-            text: `Hi, please Reset your account password using the OTP below:${otp}. `,
+            html : PASSWORD_RESET_TEMPLATE.replace("{{otpCode}}",otp)
         }
         await transporter.sendMail(mailOptions);
         return res.status(200).json({
