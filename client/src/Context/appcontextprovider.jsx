@@ -11,9 +11,7 @@ export const AppContextProvider = ({ children }) => {
   const getuserdata = async () => {
     try {
       const token = localStorage.getItem("token");
-      const { data } = await axios.get(`${BackendUrl}/api/user/data`, {
-        headers: token ? { Authorization: `Bearer ${token}` } : {},
-      });
+      const { data } = await axios.get(`${BackendUrl}/api/user/data`);
       data.success ? setuserdata(data.data) : toast.error(data.message);
     } catch (error) {
       toast.error(error.message);
