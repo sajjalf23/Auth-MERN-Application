@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext ,useEffect} from "react";
 import { assets } from "../assets/assets";
 import "../Styles/navbar.css";
 import { useNavigate } from "react-router-dom";
@@ -9,6 +9,11 @@ import axios from "axios";
 const Navbar = () => {
   const navigate = useNavigate();
   const {userdata , BackendUrl,setisloggedin , setuserdata } = useContext(AppContext);
+  useEffect(() => {
+  if (userdata) {
+    console.log("User data updated:", userdata);
+  }
+ }, [userdata]);
   const sendverifyotp = async () => {
       try {
         axios.defaults.withCredentials = true;
