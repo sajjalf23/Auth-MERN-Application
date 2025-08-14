@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext ,useEffect} from "react";
 import { assets } from "../assets/assets";
 import "../Styles/header.css";
 import { AppContext } from "../Context/appcontext";
@@ -6,7 +6,11 @@ import { AppContext } from "../Context/appcontext";
 
 function Header() {
   const { userdata  } = useContext(AppContext);
-  
+  useEffect(() => {
+  if (userdata) {
+    console.log("User data updated:", userdata);
+  }
+  }, [userdata]);
       return (
         <div className="header">
           <img src={assets.header_img} alt="" className="headerimg" />
