@@ -24,7 +24,7 @@ const Login = () => {
            if(data.success){
             setisloggedin(true);
             toast.success(data.message);
-            getuserdata();
+            await getuserdata();
             navigate('/');
            }else{
             toast.error(data.message);
@@ -37,7 +37,7 @@ const Login = () => {
            if(data.success){
             setisloggedin(true);
             toast.success(data.message);
-            getuserdata();
+            await getuserdata();
             navigate('/');
            }else{
             toast.error(data.message);
