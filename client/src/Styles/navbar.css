@@ -1,0 +1,74 @@
+
+
+.navbar {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  background: transparent;
+  box-sizing: border-box;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.navright {
+  display: flex;
+  align-items: center;
+}
+
+/* Avatar (Bootstrap button) */
+.namedlogo {
+  border: 2px solid black;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  background-color: #f5f5f5;
+  cursor: pointer;
+  padding: 0; /* remove Bootstrap btn extra padding */
+  line-height: 1; /* keeps text centered */
+}
+
+/* Dropdown menu styling */
+.dropdown-menu {
+  min-width: 150px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+}
+
+.dropdown-item:hover {
+  background: #f0f0f0;
+}
+
+/* Optional: Align dropdown to right when on right side of navbar */
+.navright .dropdown-menu {
+  right: 0;
+  left: auto;
+}
+
+
+.login{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: 2px solid ;
+    background-color: white;
+    border-radius: 25px;
+    padding: 5px;
+    width: 100px;
+    cursor: pointer;
+}
+
+.login:hover{
+    background-color: silver;
+    border : 2px solid silver;
+    color: white;
+    cursor: pointer;
+}
