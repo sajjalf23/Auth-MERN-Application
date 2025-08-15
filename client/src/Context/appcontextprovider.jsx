@@ -11,7 +11,7 @@ export const AppContextProvider = ({ children }) => {
   axios.defaults.baseURL = BackendUrl;
   const getuserdata = async () => {
     try {
-      const { data } = await axios.get(`${BackendUrl}/api/user/data`);
+      const { data } = await axios.get(`${BackendUrl}/api/user/data`, { withCredentials: true });
       console.log("✅ Full API response:", data);
       if (data.success) {
         setuserdata(data.data);
