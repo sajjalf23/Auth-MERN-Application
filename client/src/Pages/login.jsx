@@ -25,8 +25,12 @@ const Login = () => {
            if(data.success){
             setisloggedin(true);
             toast.success(data.message);
-            await getuserdata();
-            navigate('/');
+            // await getuserdata();
+            // navigate('/');
+            setTimeout(async () => {
+               await getuserdata();
+               navigate('/');
+           }, 50); 
            }else{
             toast.error(data.message);
            }
@@ -38,8 +42,12 @@ const Login = () => {
            if(data.success){
             setisloggedin(true);
             toast.success(data.message);
-            await getuserdata();
-            navigate('/');
+            // await getuserdata();
+            // navigate('/');
+            setTimeout(async () => {
+                await getuserdata();
+                navigate('/');
+           }, 50); 
            }else{
             toast.error(data.message);
            }
