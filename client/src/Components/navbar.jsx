@@ -8,9 +8,9 @@ import axios from "axios";
 
 const Navbar = () => {
   axios.defaults.withCredentials = true;
+  const {userdata , BackendUrl,setisloggedin , setuserdata } = useContext(AppContext);
   axios.defaults.baseURL = BackendUrl;
   const navigate = useNavigate();
-  const {userdata , BackendUrl,setisloggedin , setuserdata } = useContext(AppContext);
   useEffect(() => {
   if (userdata) {
     console.log("User data updated:", userdata);
