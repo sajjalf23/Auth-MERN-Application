@@ -8,8 +8,8 @@ import axios from 'axios';
 
 const Emailverify = () => {
   axios.defaults.withCredentials = true;
-  axios.defaults.baseURL = BackendUrl;
   const { BackendUrl, getuserdata ,isloggedin , userdata} = useContext(AppContext);
+  axios.defaults.baseURL = BackendUrl;
   const navigate = useNavigate();
 
   const inputRefs = React.useRef([]);
