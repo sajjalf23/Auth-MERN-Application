@@ -9,7 +9,7 @@ import axios from "axios";
 const Navbar = () => {
   axios.defaults.withCredentials = true;
   const {userdata , BackendUrl,setisloggedin , setuserdata } = useContext(AppContext);
-  axios.defaults.baseURL = BackendUrl;
+
   const navigate = useNavigate();
   useEffect(() => {
   if (userdata) {
