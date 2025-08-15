@@ -10,11 +10,10 @@ export const AppContextProvider = ({ children }) => {
   axios.defaults.withCredentials = true;
   const getuserdata = async () => {
     try {
-      const token = localStorage.getItem("token");
-      console.log("Token from localStorage:", token); 
       const { data } = await axios.get(`${BackendUrl}/api/user/data`,{
       withCredentials: true,
     });
+      console.log("✅ Full API response:", data);
       data.success ? setuserdata(data.data) : toast.error(data.message);
       console.log("Response data:", data);
     } catch (error) {
