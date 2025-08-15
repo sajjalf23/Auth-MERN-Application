@@ -8,6 +8,7 @@ import axios from "axios";
 
 const Resetpassword = () => {
   axios.defaults.withCredentials = true;
+  axios.defaults.baseURL = BackendUrl;
   const { BackendUrl } = useContext(AppContext);
   const navigate = useNavigate();
 
