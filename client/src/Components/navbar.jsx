@@ -7,6 +7,7 @@ import { toast } from 'react-toastify';
 import axios from "axios";
 
 const Navbar = () => {
+  axios.defaults.withCredentials = true;
   const navigate = useNavigate();
   const {userdata , BackendUrl,setisloggedin , setuserdata } = useContext(AppContext);
   useEffect(() => {
@@ -16,7 +17,6 @@ const Navbar = () => {
  }, [userdata]);
   const sendverifyotp = async () => {
       try {
-        axios.defaults.withCredentials = true;
         const { data } = await axios.post(BackendUrl + '/api/auth/sendverifyotp');
         if (data.success) {
           toast.success(data.message);
@@ -31,7 +31,6 @@ const Navbar = () => {
     }
   const logout = async () => {
       try {
-        axios.defaults.withCredentials = true;
         const { data } = await axios.post(BackendUrl + '/api/auth/logout');
         if (data.success) {
           setisloggedin(false);
