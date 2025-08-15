@@ -11,8 +11,6 @@ export const AppContextProvider = ({ children }) => {
   axios.defaults.baseURL = BackendUrl;
   const getuserdata = async () => {
     try {
-      const tokenvalue = document.cookie.split('; ').find(row => row.startsWith('token='));
-      console.log(tokenvalue);
       const { data } = await axios.get(`${BackendUrl}/api/user/data`,{
       withCredentials: true,
     });
