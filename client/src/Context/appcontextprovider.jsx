@@ -8,13 +8,22 @@ export const AppContextProvider = ({ children }) => {
   const [isloggedin, setisloggedin] = useState(false);
   const [userdata, setuserdata] = useState(null);
   axios.defaults.withCredentials = true;
+  axios.defaults.baseURL = BackendUrl;
   const getuserdata = async () => {
     try {
+      const tokenvalue = document.cookie.split('; ').find(row => row.startsWith('token='));
+      console.log(tokenvalue);
       const { data } = await axios.get(`${BackendUrl}/api/user/data`,{
       withCredentials: true,
     });
       console.log("✅ Full API response:", data);
-      data.success ? setuserdata(data.data) : toast.error(data.message);
+      if (data.success) {
+        setuserdata(data.data);
+        setisloggedin(true);
+      } else {
+        toast.error(data.message);
+        setisloggedin(false);
+      }
       console.log("Response data:", data);
     } catch (error) {
       toast.error(error.message);
