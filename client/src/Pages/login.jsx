@@ -9,7 +9,7 @@ import axios from "axios";
 const Login = () => {
   axios.defaults.withCredentials = true;
   const {BackendUrl,setisloggedin,getuserdata,userdata} = useContext(AppContext);
-  axios.defaults.baseURL = BackendUrl;
+
   const navigate = useNavigate();
   const[name , setname] = useState('');
   const[email , setemail] = useState('');
