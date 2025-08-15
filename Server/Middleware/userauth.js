@@ -2,6 +2,7 @@ import jwt from "jsonwebtoken";
 
 const userauth = (req, res, next) => {
     try {
+        console.log('Incoming cookies:', req.cookies);
         const token = req.cookies?.token;
         if (!token) {
             return res.status(401).json({
@@ -9,7 +10,6 @@ const userauth = (req, res, next) => {
                 message: "Not authorized. Please log in again.",
             });
         }
-
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
         if (!decoded?.id) {
             return res.status(401).json({
