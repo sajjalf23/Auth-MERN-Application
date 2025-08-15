@@ -7,6 +7,7 @@ import {toast} from "react-toastify";
 import axios from "axios";
 
 const Login = () => {
+  axios.defaults.withCredentials = true;
   const {BackendUrl,setisloggedin,getuserdata,userdata} = useContext(AppContext);
   const navigate = useNavigate();
   const[name , setname] = useState('');
@@ -14,7 +15,6 @@ const Login = () => {
   const[password,setpassword] = useState('');
   const [state, setstate] = useState('login');
   const onSubmithandler=async(e)=>{
-    axios.defaults.withCredentials = true;
       try{
          e.preventDefault();
          if(state === 'signup'){
