@@ -8,6 +8,7 @@ import axios from "axios";
 
 const Navbar = () => {
   axios.defaults.withCredentials = true;
+  axios.defaults.baseURL = BackendUrl;
   const navigate = useNavigate();
   const {userdata , BackendUrl,setisloggedin , setuserdata } = useContext(AppContext);
   useEffect(() => {
