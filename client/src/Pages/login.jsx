@@ -8,6 +8,7 @@ import axios from "axios";
 
 const Login = () => {
   axios.defaults.withCredentials = true;
+  axios.defaults.baseURL = BackendUrl;
   const {BackendUrl,setisloggedin,getuserdata,userdata} = useContext(AppContext);
   const navigate = useNavigate();
   const[name , setname] = useState('');
