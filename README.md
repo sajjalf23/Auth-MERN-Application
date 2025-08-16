@@ -1,8 +1,10 @@
 # MERN Authentication App Using JWT
 
-[![Backend]](https://auth-mern-application-api.vercel.app)  
-[![Frontend]](https://auth-mern-application-ui.vercel.app)  
-[![Recording]](https://github.com/sajjalf23/Auth-MERN-Application/blob/main/Video%20Recording%20.mp4)
+🎥 Demo Preview
+
+🔗 [Live Demo](https://auth-mern-application-ui.vercel.app)
+🔗 [Recording](https://github.com/sajjalf23/Auth-MERN-Application/blob/main/Video%20Recording%20.mp4)
+🔗 [Backend](https://auth-mern-application-api.vercel.app)  
 
 A full-stack **Authentication System** built with **MERN (MongoDB, Express, React, Node.js)**.  
 Supports **user registration, login, email verification, and password reset** with JWT-based authentication.
