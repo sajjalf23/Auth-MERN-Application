@@ -53,4 +53,15 @@ SMTP_USER=*****@smtp-brevo.com
 SMTP_PASS=********
 SENDER_EMAIL=*****@gmail.com
 
+---
+
+This project uses **HttpOnly** cookies to store JWT tokens.
+Because the frontend and backend are deployed on different subdomains (Vercel).
+**Opera** / Firefox / Edge: Allow these cookies in this setup → Work normally.
+Google Chrome (Desktop & Mobile): Blocks third-party cookies by default → Login succeeds but /api/user/data fails with 401 Unauthorized.
+so it is requested to **use opera** instead , avoid Google Chrome
+
+
+
+
 
